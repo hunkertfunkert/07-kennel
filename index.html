@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Lodging Price Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Dog Lodging Price Calculator</h1>
+<hr>
+
+<label for="dogSize">Dog size:</label>
+<select id="dogSize">
+    <option value="small">Small (30$/day)</option>
+    <option value="large">Large (32$/day)</option>
+</select>
+
+<label for="numDays">number of days:</label>
+<input type="number" id="numDays" min="1" placeholder="Number of days" required>
+
+<button onclick="calculateCost()">calculate price</button>
+
+<h2 id="result"></h2>
+
+<script>
+    function calculateCost() {
+        const dogSize = document.getElementById("dogSize").value;
+        const numDays = parseInt(document.getElementById("numDays").value);
+        const taxRate = 0.047;
+        let dailyRate;
+        if (dogSize === "small") {
+            dailyRate = 30;
+        } else{
+            dailyRate = 32;
+        }
+
+        const subtotal = dailyRate * numDays;
+
+        const tax = (subtotal * taxRate);
+
+        const totalCost = subtotal + tax;
+
+        document.getElementById("result").innerText = 
+        `Price: $${subtotal.toFixed(2)}
+            Tax: $${tax.toFixed(2)}
+            Total: $${(totalCost).toFixed(2)} `;
+    }
+</script>
+
+</body>
+</html>

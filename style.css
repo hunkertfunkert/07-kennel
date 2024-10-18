@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+label, input, button {
+    margin: 10px 0;
+    display: block;
+    text-align:center;
+    line-height:150%;
+    font-size:1em;
+    width: 100%;
+}
